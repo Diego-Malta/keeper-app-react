@@ -7,7 +7,7 @@ import CreateArea from './CreateArea'
 
 function App() {
 
-  // const[newNotes, setValue] = useState(notes)
+  // const[newNotes, setNewNotes] = useState(notes)
   // const [newNotes, setNewNotes] = useState([{ title: "", content: "" }])
   const [newNotes, setNewNotes] = useState([])
 
@@ -18,9 +18,12 @@ function App() {
     if (title && content) setNewNotes([...newNotes, note])
   }
 
-  // function deleteNote(id){
-  //   setValue(prevValues => prevValues.filter((value, index) => index !== id))
-  // }
+  function deleteNote(id){
+    // console.log("Your note will be deleted!")
+    // console.log("The id is: " + id)
+
+    setNewNotes(prevValues => prevValues.filter((value, index) => index !== id))
+  }
 
   return (
     <div>
@@ -33,7 +36,7 @@ function App() {
             id={index}
             title={note.title}
             content={note.content}
-          // onClickDelete={deleteNote}
+            onDelete={deleteNote}
           />
         )
       }
