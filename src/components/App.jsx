@@ -1,22 +1,39 @@
-// import logo from './logo.svg';
-// import './App.css';
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Note from './Note'
-import notes from '../notes'
-
+import CreateArea from './CreateArea'
+// import notes from '../notes'
 
 function App() {
+
+  // const[newNotes, setValue] = useState(notes)
+  // const [newNotes, setNewNotes] = useState([{ title: "", content: "" }])
+  const [newNotes, setNewNotes] = useState([])
+
+  function addNote(note) {
+    const { title, content} = note
+
+    //check if title and content are not empty
+    if (title && content) setNewNotes([...newNotes, note])
+  }
+
+  // function deleteNote(id){
+  //   setValue(prevValues => prevValues.filter((value, index) => index !== id))
+  // }
+
   return (
     <div>
       <Header />
-      {
-        notes.map(note =>
+      <CreateArea onAdd={addNote} />
+      {newNotes.length > 0 && 
+        newNotes.map((note, index) =>
           <Note
-            key={note.key}
+            key={index}
+            id={index}
             title={note.title}
             content={note.content}
+          // onClickDelete={deleteNote}
           />
         )
       }
