@@ -3,13 +3,13 @@ import Header from './Header'
 import Footer from './Footer'
 import Note from './Note'
 import CreateArea from './CreateArea'
-// import notes from '../notes'
+import savedNotes from '../notes'
 
 function App() {
 
-  // const[newNotes, setNewNotes] = useState(notes)
+  const[notes, setNotes] = useState(savedNotes)
   // const [newNotes, setNewNotes] = useState([{ title: "", content: "" }])
-  const [notes, setNotes] = useState([])
+  // const [notes, setNotes] = useState([])
 
   function addNote(note) {
     const { title, content} = note
