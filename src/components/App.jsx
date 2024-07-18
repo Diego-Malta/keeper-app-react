@@ -9,28 +9,25 @@ function App() {
 
   // const[newNotes, setNewNotes] = useState(notes)
   // const [newNotes, setNewNotes] = useState([{ title: "", content: "" }])
-  const [newNotes, setNewNotes] = useState([])
+  const [notes, setNotes] = useState([])
 
   function addNote(note) {
     const { title, content} = note
 
     //check if title and content are not empty
-    if (title && content) setNewNotes([...newNotes, note])
+    if (title && content) setNotes([...notes, note])
   }
 
   function deleteNote(id){
-    // console.log("Your note will be deleted!")
-    // console.log("The id is: " + id)
-
-    setNewNotes(prevValues => prevValues.filter((value, index) => index !== id))
+    setNotes(prevValues => prevValues.filter((value, index) => index !== id))
   }
 
   return (
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
-      {newNotes.length > 0 && 
-        newNotes.map((note, index) =>
+      {notes.length > 0 && 
+        notes.map((note, index) =>
           <Note
             key={index}
             id={index}
