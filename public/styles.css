@@ -11,10 +11,12 @@ body {
   padding: 0 16px;
   background-color: #446df1;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  overflow-x: hidden;
 }
 
 header {
   background-color: #f5ba13;
+  background-image: url("https://www.transparenttextures.com/patterns/cutcube.png");
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -67,6 +69,7 @@ footer p {
   height: 36px;
   cursor: pointer;
   outline: none;
+  background-color: transparent;
 }
 
 form.create-note {
