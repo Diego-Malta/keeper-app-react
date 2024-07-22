@@ -16,22 +16,7 @@ const notes = [
     title: "Arrays",
     content:
       "Q. Why did the programmer quit his job? A. Because he didn't get arrays."
-  },
-  // {
-  //   key: 4,
-  //   title: "Hardware vs. Software",
-  //   content: "What's the difference between hardware and software?"
-  // },
-  // {
-  //   key: 5,
-  //   title: "JSX",
-  //   content: "What is JSX?"
-  // },
-  // {
-  //   key: 6,
-  //   title: "React",
-  //   content: "What is React?"
-  // }
+  }
 ]
 
 export default notes

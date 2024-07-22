@@ -8,14 +8,14 @@ import savedNotes from '../notes'
 function App() {
 
   const[notes, setNotes] = useState(savedNotes)
-  // const [newNotes, setNewNotes] = useState([{ title: "", content: "" }])
-  // const [notes, setNotes] = useState([])
 
   function addNote(note) {
-    const { title, content} = note
 
-    //check if title and content are not empty
-    if (title && content) setNotes([...notes, note])
+    // check if both title and content exist with optional chaining
+    const validNote = ["title", "content"].every(prop => note?.[prop])
+
+    // check with optional chaining
+    validNote && setNotes([...notes, note])
   }
 
   function deleteNote(id){
