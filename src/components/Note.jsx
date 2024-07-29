@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Delete, EditNote, ExpandMore, ExpandLess } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 
-function Note(props) {
+function Note({id, title, content, onDelete}) {
 
   const [isExpanded, setExpanded] = useState(false)
 
-  function handleClick(event) {
-    // console.log(event.target)
-    props.onDelete(props.id)
+  function handleClick(e) {
+    // console.log(e.target)
+    onDelete(id)
   }
 
   function expandContent() {
@@ -18,9 +18,9 @@ function Note(props) {
   function ContentArea(){
     return (
       <div>
-        <p>{props.content}</p>
+        <p>{content}</p>
         <IconButton aria-label="delete" onClick={handleClick}><Delete /></IconButton>
-        {/* <IconButton onClick={() => { props.onEdit(props.id) }}><EditNoteIcon /></ IconButton> */}
+        {/* <IconButton onClick={() => { onEdit(id) }}><EditNoteIcon /></ IconButton> */}
         {/* Edit button still to have function ↓*/}
         <IconButton><EditNote /></ IconButton>
       </div>
@@ -29,7 +29,7 @@ function Note(props) {
 
   return (
     <div className='note'>
-      <h1>{props.title}</h1>
+      <h1>{title}</h1>
       <IconButton onClick={expandContent}>{isExpanded ? <ExpandLess /> : <ExpandMore />}</IconButton>
       {isExpanded && <ContentArea />}
     </div>

@@ -7,7 +7,7 @@ import savedNotes from '../notes'
 
 function App() {
 
-  const[notes, setNotes] = useState(savedNotes)
+  const [notes, setNotes] = useState(savedNotes)
 
   function addNote(note) {
 
@@ -18,7 +18,7 @@ function App() {
     validNote && setNotes([...notes, note])
   }
 
-  function deleteNote(id){
+  function deleteNote(id) {
     setNotes(prevValues => prevValues.filter((value, index) => index !== id))
   }
 
@@ -26,8 +26,8 @@ function App() {
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
-      {notes.length > 0 && 
-        notes.map((note, index) =>
+      {notes.length > 0 &&
+        notes.map((note, index) => 
           <Note
             key={index}
             id={index}

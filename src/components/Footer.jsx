@@ -1,4 +1,5 @@
 import React from 'react'
+import SocialMediaArea from './SocialMediaArea'
 
 function Footer () {
 
@@ -7,6 +8,7 @@ function Footer () {
   return (
     <footer>
       <p>Copyright ⓒ {currentYear}</p>
+      <SocialMediaArea />
     </footer>
   )
 }

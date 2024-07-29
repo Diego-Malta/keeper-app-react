@@ -3,13 +3,13 @@ import AddIcon from '@mui/icons-material/Add';
 import { Fab, Zoom } from '@mui/material';
 
 
-function CreateArea(props) {
+function CreateArea({onAdd}) {
 
   const [note, setNote] = useState({ title: "", content: "" })
   const [isExpanded, setExpanded] = useState(false)
 
-  function handleChange(event) {
-    const { name, value } = event.target
+  function handleChange(e) {
+    const { name, value } = e.target
     setNote(prevNote => {
       return { ...prevNote, [name]: value }
     })
@@ -19,10 +19,10 @@ function CreateArea(props) {
     setExpanded(!isExpanded)
   }
 
-  function submitNote(event) {
-    props.onAdd(note)
+  function submitNote(e) {
+    onAdd(note)
     setNote({ title: "", content: "" })
-    event.preventDefault()
+    e.preventDefault()
   }
 
   return (
